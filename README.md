@@ -1,7 +1,8 @@
+#for my assignment 
 THIS PROJECT IS CREATE BY LUQMAN
 - this is web application using laravel and bootstrap framework
 - this is simple online banking system that can check balance and transfer money
-#for my assignment 
+
 
 ![image](https://user-images.githubusercontent.com/82314309/173183627-67a4154f-8ae0-49c8-9c69-6b5ef81f5584.png)
 ![image](https://user-images.githubusercontent.com/82314309/173183634-1ff97693-59e9-419d-9962-134ff3c7e06d.png)
