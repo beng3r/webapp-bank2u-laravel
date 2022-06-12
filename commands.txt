@@ -1,4 +1,4 @@
-
+WEBSERVER
 apache
 
 sudo yum install httpd
@@ -24,7 +24,7 @@ phpinfo();
 sudo systemctl restart httpd
 
 
-mysql
+mysql DATABASE SERVER
 sudo vi /etc/hosts
 10.148.0.8      database
 10.147.0.4      firewall
@@ -48,7 +48,7 @@ sudo setsebool -P httpd_can_network_connect_db on
 sudo systemctl restart httpd.service
 
 
-deploy
+deploy web app
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/bin/composer
@@ -58,7 +58,6 @@ sudo cd /var/www/html/
 mkdir bank2u
 cd bank2u
 sudo git clone https://github.com/beng3r/webapp-bank2u-laravel.git
-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
 sudo chown -R apache.apache /var/www/html/bank2u
 sudo chmod -R 755 /var/www/html/bank2u 
 sudo chmod -R 755 /var/www/html/bank2u/storage
@@ -116,72 +115,14 @@ sudo systemctl restart httpd.service
       </Directory> 
 </VirtualHost> 
 
-FIREWALL
+FIREWALL SERVER
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-
+//send webserver cert to firewall server
 /etc/ssl/certs/apache-selfsigned.crt
-
------BEGIN CERTIFICATE-----
-MIIDwzCCAqugAwIBAgIJAIHYYhr0ub26MA0GCSqGSIb3DQEBCwUAMHgxCzAJBgNV
-BAYTAk1ZMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0RlZmF1bHQg
-Q29tcGFueSBMdGQxEzARBgNVBAMMCmJhbmsydS5jb20xHzAdBgkqhkiG9w0BCQEW
-EGFkbWluQGJhbmsydS5jb20wHhcNMjIwNjEwMTQwNjE2WhcNMjMwNjEwMTQwNjE2
-WjB4MQswCQYDVQQGEwJNWTEVMBMGA1UEBwwMRGVmYXVsdCBDaXR5MRwwGgYDVQQK
-DBNEZWZhdWx0IENvbXBhbnkgTHRkMRMwEQYDVQQDDApiYW5rMnUuY29tMR8wHQYJ
-KoZIhvcNAQkBFhBhZG1pbkBiYW5rMnUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
-AQ8AMIIBCgKCAQEAxaXsnvyznqjjLREGu9RfmD1JDeYLQZERz2Rg4/f+w1J62XTa
-t/x5Pa+KY0O+O0DT+y15BreQDGXH1n64Jvi796nlS8MJHylJzXqm5swqHRocfwKZ
-C+SgmTsL8GVCcZYXXDd1avlD84TwscTb+VxoC6qHQsbAG5hPBFp72OtTUET6lSWs
-ocKewnn4JlfFXhktvJdmUNmN6+YjyXpNiMGmbsi+yl86ZL5f4fXXdbc1SMSOEN7X
-Aq/Zmyd3RvwD/9MC6tA33MaRdQXj/vxEv3w10qfm51Rl7EK1DD6PKcBaQvV9IRbp
-nEKu1Kw2XNZzvmmcGSWddx0nsvCVHUNatgR6rQIDAQABo1AwTjAdBgNVHQ4EFgQU
-YmBXyrCV+mZn0B6rWZY8tWgoyUcwHwYDVR0jBBgwFoAUYmBXyrCV+mZn0B6rWZY8
-tWgoyUcwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAr/DS+EkA9NUj
-MFHSMOc5iLIxeXzoU6VBTzU5FsZjA/4cYr26MuTk/l09oBuSY1lTBAVwAItrtUAF
-ugLC7pzMTOK80v26spm5XFEhS/QFwgUBo8WMe8EvmDbnoJvBkUGNRjQUHMMN5Qp3
-c46vFJuHn65TZp3JUchrQgf7ZDGjGxLRBUCcJF6iChBVbcqxWgEL9WOthAXDFlOG
-P42fypzjQyogWYvSq4O5eD6vN9m9iVJHfmJOzKJTNSrDykE0zDQq+iKcfN8CazTr
-pXhzs1t64vr7BtTZGYIJw6Lif6k5vMh0rpf7Z5tS6QGO721k5hCTLUOI/4oyxjqF
-QUNQb/Tj7g==
------END CERTIFICATE-----
-
 /etc/ssl/private/apache-selfsigned.key 
-
------BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDFpeye/LOeqOMt
-EQa71F+YPUkN5gtBkRHPZGDj9/7DUnrZdNq3/Hk9r4pjQ747QNP7LXkGt5AMZcfW
-frgm+Lv3qeVLwwkfKUnNeqbmzCodGhx/ApkL5KCZOwvwZUJxlhdcN3Vq+UPzhPCx
-xNv5XGgLqodCxsAbmE8EWnvY61NQRPqVJayhwp7CefgmV8VeGS28l2ZQ2Y3r5iPJ
-ek2IwaZuyL7KXzpkvl/h9dd1tzVIxI4Q3tcCr9mbJ3dG/AP/0wLq0DfcxpF1BeP+
-/ES/fDXSp+bnVGXsQrUMPo8pwFpC9X0hFumcQq7UrDZc1nO+aZwZJZ13HSey8JUd
-Q1q2BHqtAgMBAAECggEAFHcj0yqTZsBSFZ6Htfc9lsPxxpClZbqhv3nDVpedN5hY
-xB+HbjmkTDDbAYBIOFZ0HLQOrhVfwwje8mTYqKBkxjY/WeLuFN3vmGk00v0c9zp2
-7OfV9RdNUdB9Yfz6Lky+SnwrmlIJKTQAwEeEB4P7+glETDPMPI8+z1KXNFTZoZv0
-SH6Vav/Xc18S28rDJwJta6Dgz4l57YOHliiK2QQCY9RkDd1Bz0ycpCcFosH4pOIu
-foizD4lRArU4idrXWZ16WcHDiBGHGyFOf9g++/6BlRdOQt3dl7ONU0AlciZ9eERg
-Je921irkUmQ0MqjjRwLaSRvR6IhCE76X5FKtKYp2uQKBgQDjQBR5W/6SbZlyEzbq
-LnbuOMgWXjsSlXWRY/VDxAa6MaM85HFFztJ7kHgpSvJ5bsUxiQoQRTPVaIDk12Sv
-n5PYr0H/Hqij8vYXBpnuTSbBKCxjH1gqA+zv+MHy8cbdEdQ68E4ZIWG+fl7/Qk7I
-psKO+dAFAL+0Rsli2YDW6i1cEwKBgQDepx+dS3PUE3FNdHjyDk0MqOtwOXSNVS10
-rmYkMUUEiiakvwYJPOAMbbjD56IgBCSBjJ1pZnocCfmE9x8rKdECkzk3irIkQnE4
-SpiN9+YIaUK5y+dkhAUADBzWrkgfJ0B6nXI+pmxZ1613be+j2mH3Uae4vc80pf9f
-bKHKCBAmPwKBgD+ropDmH4tzPbzieU5ful7Adf8eY7qvOYOE2CEmeSQN6EiVUM9Y
-RUzti102bH1tdb6NQM6SNRWj9Akp+EHkmg3p/Lm4I1PcLOsCpHpKD4Oq99TF4XPU
-KbyKm/yvlSI3bpkc3yTXX4V57q/iKiS55GUexRPBw/SEqMQTYK/WaOMVAoGBAIoJ
-xPDpEYOfFjS2DDHNqfk6VNU72cWx1D+tzAeOQELjP7gN8jkR87ng4JccaYg96UAk
-JIdvEC+IA5lq+HjzMPDOw79qjq0qQDVtEg2abpQyZjr4bpoDu3HfEJYMcQxXcoNS
-T70FwtEkhRgxIUxNnUUO69P+YZM7gwrvN5Mg0ppTAoGAQhtj+vNAQZrJiaEOybJZ
-LRlAoRGgH+qK6g1gnSqUSUvTJsjkYTgQb0mHRYL7pKIF509Bh8fZrobCXvo2dTHt
-PUFRX10MuJ6cvXhEATfXBpHS4EFT2EGu7bdMWT2I+oG669huzCMnCzX2roVf8MOy
-R9Te1ae0jtKXXgOLKPRt4ro=
------END PRIVATE KEY-----
-
-
-
-
-
+//add this to ngix conf
 server {
         listen 443 ssl;
         server_name 35.197.130.250;
