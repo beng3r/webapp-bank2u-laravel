@@ -8,7 +8,8 @@ THIS PROJECT IS CREATE BY LUQMAN
 ![image](https://user-images.githubusercontent.com/82314309/173183627-67a4154f-8ae0-49c8-9c69-6b5ef81f5584.png)
 ![image](https://user-images.githubusercontent.com/82314309/173183634-1ff97693-59e9-419d-9962-134ff3c7e06d.png)
 
-
+tutorial = https://www.youtube.com/watch?v=VHsWsUrQp74
+commands use for this project in commands.txt
 
 
 ## About Laravel
